@@ -1,14 +1,16 @@
 import React from "react";
 import { styled } from "styled-components";
+import { getWeather } from "../../utils";
 
 function UserSearch() {
   const [cityInput, setCityInput] = React.useState("");
 
   const handleCitySearch = (event) => {
-    event.preventDefault();
-    const city = cityInput;
-    setCityInput("");
-    console.log(city);
+    event.preventDefault(); /**prevent page reload */
+    const city = cityInput; /**save city name */
+    setCityInput(""); /**clear city input */
+
+    getWeather(city); /**get weather of the city */
   };
   return (
     <Wrapper>
